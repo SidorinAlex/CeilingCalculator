@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alex.activity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="5">-->
+
+            <!--<TextView-->
+            <!--style="@style/HorizontalStyle"-->
+            <!--android:layout_weight="3"-->
+            <!--android:text="Адрес" />-->
+
+
+            <!--<EditText-->
+            <!--android:id="@+id/addressForOrder"-->
+            <!--style="@style/HorizontalStyle"-->
+            <!--android:layout_weight="2"-->
+            <!--android:hint="адрес"-->
+            <!--android:inputType="text"-->
+            <!--android:singleLine="true" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/colorPrimaryDark" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="5">-->
+
+                <!--<TextView-->
+                    <!--style="@style/HorizontalStyle"-->
+                    <!--android:layout_weight="3"-->
+                    <!--android:text="Название комнаты" />-->
+
+
+                <!--<EditText-->
+                    <!--android:id="@+id/roomName"-->
+                    <!--style="@style/HorizontalStyle"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:hint="название комнаты"-->
+                    <!--android:inputType="text"-->
+                    <!--android:singleLine="true" />-->
+
+
+            <!--</LinearLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+
+                <Spinner
+                    android:id="@+id/ceilingBrandSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.48"
+                    android:entries="@array/ceilingBrand" />
+
+                <Spinner
+                    android:id="@+id/textureSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.4"
+                    android:entries="@array/texture"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.4"
+                    android:entries="@array/color"
+                    android:visibility="gone" />
+
+                <Spinner
+                    android:id="@+id/exclusive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.4"
+                    android:entries="@array/color"
+                    android:visibility="gone" />
+
+                <Spinner
+                    android:id="@+id/designColor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.4"
+                    android:entries="@array/designColor"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputSquare"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1.7"
+                    android:hint="0"
+                    android:inputType="numberDecimal" />
+
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1"
+                    android:text="м²" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/typeOfDesignLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="10">
+
+
+                <Spinner
+                    android:id="@+id/typesOfDesignSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:entries="@array/typesOfDesign" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputQuantityDesign"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1.7"
+                    android:hint="0"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/photoPrintUnits"
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="м2"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/adhesionUnits"
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="м.п."
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <Spinner
+                    android:id="@+id/baguetteSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:entries="@array/baguette" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputBaguette"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1.7"
+                    android:hint="0"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="м.п." />
+            </LinearLayout>
+
+                <Switch
+                    android:id="@+id/rgbSwitch"
+                    style="@style/MySwitch"
+                    android:text="Установка ленты RGB" />
+
+                <Switch
+                    android:id="@+id/insertColorSwitch"
+                    style="@style/MySwitch"
+                    android:text="Цветная декоративная вставка" />
+
+            <LinearLayout
+                android:id="@+id/additionalInstallation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="10">
+
+
+                <Spinner
+                    android:id="@+id/installationSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:entries="@array/installation" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputInstallation"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1.7"
+                    android:hint="0"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="м.п." />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/pipe"
+                style="@style/MySwitch"
+                android:onClick="showPipeAndAngle"
+                android:text="Трубы \\ доп. углы" />
+
+            <LinearLayout
+                android:id="@+id/pipesAndAnglesCounter"
+                android:layout_width="69dp"
+                android:layout_height="49dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Обвод угла свыше четырех" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementAngle"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/angle"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementAngle"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Труба отопления" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementHeatingPipe"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/heatingPipe"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementHeatingPipe"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Труба канализации" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementSewagePipe"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/sewagePipe"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementSewagePipe"
+                        android:text="+" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/latticeAndSignalization"
+                style="@style/MySwitch"
+                android:onClick="showLatticeAndSignalization"
+                android:text="Вент. решётки \\ сигнализация" />
+
+            <LinearLayout
+                android:id="@+id/latticeAndSignalizationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Решётка 50 мм" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementLattice50"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/lattice50"
+                        style="@style/HorizontalStyle"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementLattice50"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Решётка 100 мм" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementLattice100"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/lattice100"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementLattice100"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Монтаж крупногабартиного элемента" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementCoarseGrainedElement"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/coarseGrainedElement"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementCoarseGrainedElement"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Монтаж пожарной сигнализации" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementFireAlarm"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/fireAlarm"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementFireAlarm"
+                        android:text="+" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="6.7"
+                        android:text="Установка точки крепления" />
+
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.3"
+                        android:onClick="decrementFixingPoint"
+                        android:text="-" />
+
+                    <TextView
+                        android:id="@+id/fixingPoint"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="0.7"
+                        android:text="0" />
+
+                    <Button
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="16dp"
+                        android:layout_weight="1.3"
+                        android:onClick="incrementFixingPoint"
+                        android:text="+" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/visibleCornicesAndTimber"
+                style="@style/MySwitch"
+                android:onClick="showCornicesAndTimber"
+                android:text="Карнизы \\ Брус" />
+
+            <LinearLayout
+                android:id="@+id/cornicesAndTimberLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <Spinner
+                        android:id="@+id/corniceInstallationSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:entries="@array/installationCornice" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.3"/>
+
+                    <EditText
+                        android:id="@+id/inputCorniceQuantity"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.7"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="м.п." />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/corniceOfTheCompany"
+                    style="@style/MySwitch"
+                    android:onClick="showCorniceOfTheCompany"
+                    android:text="Карниз компании" />
+
+                <LinearLayout
+                    android:id="@+id/corniceOfTheCompanyLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Spinner
+                        android:id="@+id/hoodSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:entries="@array/hood" >
+
+                    </Spinner>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 2400мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice2400"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice2400"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice2400"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 2600мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice2600"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice2600"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice2600"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 3000мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice3000"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice3000"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice3000"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 3200мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice3200"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice3200"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice3200"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 3600мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice3600"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice3600"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice3600"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Карниз трехрядный 4000мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementCornice4000"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/cornice4000"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementCornice4000"
+                            android:text="+" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="6.7"
+                            android:text="Гибкий карниз 5000мм" />
+
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_weight="1.3"
+                            android:onClick="decrementFlexibleCornice"
+                            android:text="-" />
+
+                        <TextView
+                            android:id="@+id/flexibleCornice"
+                            style="@style/HorizontalStyle"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="0" />
+
+                        <Button
+                            style="@style/HorizontalStyle"
+                            android:layout_marginRight="16dp"
+                            android:layout_weight="1.3"
+                            android:onClick="incrementFlexibleCornice"
+                            android:text="+" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <Spinner
+                        android:id="@+id/timberInstallationSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:entries="@array/installationTimber" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.3"/>
+
+                    <EditText
+                        android:id="@+id/inputTimberQuantity"
+                        style="@style/HorizontalStyle"
+                        android:layout_weight="1.7"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        style="@style/HorizontalStyle"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:text="м.п." />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lightingGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="3">
+
+                <CheckBox
+                    android:id="@+id/lamp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="setVisibleLampOption"
+                    android:text="Светильники"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/ledPanel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="setVisibleLedPanelOption"
+                    android:text="LED Панели"></CheckBox>
+
+                <CheckBox
+                    android:id="@+id/chandelier"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="setVisibleChandelierOption"
+                    android:text="Люстры"></CheckBox>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lampOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="10">
+
+
+                <Spinner
+                    android:id="@+id/lampSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:entries="@array/lamp" />
+
+                <Spinner
+                    android:id="@+id/gx53bilbSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.35"
+                    android:entries="@array/GX53bulb"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/mr16bilbSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.35"
+                    android:entries="@array/MR16bulb"
+                    android:visibility="gone" />
+
+                <Spinner
+                    android:id="@+id/novotechBilbSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:entries="@array/novotech"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputLamp"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1"
+                    android:hint="0"
+                    android:inputType="number" />
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="шт" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ledPanelOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="10">
+
+
+
+                <Spinner
+                    android:id="@+id/ledPanelSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:entries="@array/LEDpanel" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.35" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputLedPanel"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1"
+                    android:hint="0"
+                    android:inputType="number" />
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="шт" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chandelierOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="10">
+
+
+
+                <Spinner
+                    android:id="@+id/chandelierSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.5"
+                    android:entries="@array/chandelier" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3.35" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"/>
+
+                <EditText
+                    android:id="@+id/inputChandelier"
+                    style="@style/HorizontalStyle"
+                    android:layout_weight="1"
+                    android:hint="0"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    style="@style/HorizontalStyle"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="шт" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/remoteControlAndRadioSwitchLayout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:id="@+id/remoteControlOfLight"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:autoLink="none"
+                    android:onClick="installationOfTheControlUnitAndTheRemoteControl"
+                    android:text="Блок управления и пульт Д/У"
+                    tools:layout_height="match_parent" />
+
+                <CheckBox
+                    android:id="@+id/radioSwitch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="installationOFTheRadioSwitch"
+                    android:text="Радиовыключатель" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/vacuumCleanerAndover4MetersLayout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="2">
+
+                <CheckBox
+                    android:id="@+id/vacuumCleaner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="cleanInstallation"
+                    android:text="Чистый монтаж" />
+
+                <CheckBox
+                    android:id="@+id/over4Meters"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="installationWithAHeightOfMoreThan4Meters"
+                    android:text="Высота свыше 4 метров" />
+            </LinearLayout>
+
+            <!--<Button-->
+            <!--android:id="@+id/testOrder"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="testOrder"-->
+            <!--android:text="Order" />-->
+
+
+        <LinearLayout
+            android:id="@+id/clearAndOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:id="@+id/RoomNameButtonLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clearOrder"
+                android:text="Сброс"
+                />
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/test111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <!--<Button-->
+            <!--android:id="@+id/newRoomForOrder"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="addRoomForOrder"-->
+            <!--android:text="Добавить комнату" />-->
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

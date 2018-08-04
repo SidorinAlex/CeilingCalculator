@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CeilingCalculator</string>
+    <string name="square">Площадь</string>
+    <string name="brand">Производитель</string>
+
+    <string name="perimeter">Периметр</string>
+    <string name="M"> м² </string>
+    <string name="email_me">Почта</string>
+
+    <string-array name="ceilingBrand">
+        <item>Pongs</item>
+        <item>Polyplast</item>
+        <item>CTN</item>
+        <item>Descor</item>
+        <item>Exclusive</item>
+        <item>Design</item>
+
+    </string-array>
+
+    <string-array name="texture">
+        <item>Мат</item>
+        <item>Глянец</item>
+        <item>Сатин</item>
+        <item>Цветной мат</item>
+        <item>Цветной глянец</item>
+        <item>Цветной Сатин</item>
+    </string-array>
+
+    <string-array name="color">
+        <item>Белый</item>
+        <item>Цветной</item>
+    </string-array>
+
+    <string-array name="exclusive">
+        <item>Exclusive</item>
+        <item>PolyPlast (Бел) Венец. штукат.</item>
+        <item>PolyPlast (Бел) Галактика</item>
+        <item>PolyPlast (Бел) Небо</item>
+    </string-array>
+
+    <string-array name="designColor">
+        <item>Белый глянец/матовый Дизайн+</item>
+        <item>Цветной/фактурный Дизайн+</item>
+    </string-array>
+
+    <string-array name="typesOfDesign">
+        <item>Фотопечать</item>
+        <item>Криволинейная спайка</item>
+        <item>Прямолинейная спайка</item>
+    </string-array>
+
+    <string-array name="baguette">
+        <item>ПВХ профиль</item>
+        <item>Ткань ПВХ профиль</item>
+        <item>Алюминиевый профиль</item>
+        <item>Алюминиевый профиль на клей</item>
+        <item>Разделитель алюминиевый</item>
+        <item>Перегиб полотна</item>
+        <item>Парящий профиль</item>
+        <item>Переход на др. уровень криволинейный (ПВХ конструкция) </item>
+        <item>Переход на др. уровень по прямой (ПВХ конструкция)</item>
+        <item>Переход на другой уровень с подсветкой криволинейный (Алюминиевая конструкция)</item>
+    </string-array>
+
+    <string-array name="installationCornice">
+        <item>Установка потолочного карниза</item>
+        <item>Установка ниши с карнизом (алюминиевый профиль)</item>
+        <item>Установка гибкого карниза</item>
+    </string-array>
+
+    <string-array name="hood">
+        <item>Клиента</item>
+        <item>Бленда для карниза белая</item>
+        <item>Бленда для карниза бежевая</item>
+        <item>Бленда для карниза коричневая</item>
+    </string-array>
+
+    <string-array name="installationTimber">
+        <item>Установка открытого бруса</item>
+        <item>Установка скрытого бруса</item>
+        <item>Установка закладная из бруса</item>
+    </string-array>
+
+    <string-array name="lamp">
+        <item>Клиента</item>
+        <item>GX53 Белый</item>
+        <item>Золото GX53</item>
+        <item>Хром GX53</item>
+        <item>Чёрный хром GX53</item>
+        <item>MR16 Белый </item>
+        <item>MR16 Золото</item>
+        <item>MR16 Хром</item>
+        <item>Novotech</item>
+        <item>Клиента</item>
+    </string-array>
+
+    <string-array name="GX53bulb">
+
+        <item>5–6W 3000К ODEON </item>
+        <item>5–6W 4500К ODEON</item>
+        <item>5–6W 6000К ODEON</item>
+        <item>7–8W 3000К ODEON</item>
+        <item>7–8W 4500К ODEON</item>
+        <item>7–8W 6000К ODEON</item>
+        <item>9–10W 3000К ODEON</item>
+        <item>9–10W 4500К ODEON</item>
+        <item>9–10W 6000К ODEON</item>
+        <item>Клиента</item>
+    </string-array>
+
+    <string-array name="MR16bulb">
+
+        <item>GU5,3 7W 4500K </item>
+        <item>GU5,3 7W 6000K</item>
+    </string-array>
+
+    <string-array name="novotech">
+        <item>LED ODEON G9 4W</item>
+    </string-array>
+
+    <string-array name="LEDpanel">
+        <item>Клиента</item>
+        <item>RSP 7W 3000K</item>
+        <item>RS 8W 5000K</item>
+        <item>ODEON FND7 7W 6000K</item>
+        <item>ODEON FNC7 7W 4500K</item>
+        <item>ODEON FNW7 7W 3000K</item>
+        <item>Альфа LF 401, 6 W</item>
+        <item>Альфа LF 401, 12 W</item>
+        <item>Альфа LF 401, 18 W</item>
+        <item>Альфа LY 301, 7 W</item>
+        <item>Альфа LY 501, 6 W</item>
+        <item>Альфа LY 501, 12 W</item>
+        <item>Альфа LY 501, 18 W </item>
+        <item>Альфа X-002, LY 206, 6+2W</item>
+        <item>Feron AL500 6W</item>
+
+    </string-array>
+
+    <string-array name="chandelier">
+        <item>Клиента</item>
+        <item>SBL–CL–48W–313–4K/White</item>
+        <item>SBL–CL-65W-305–4K/White</item>
+        <item>SBL-CL-75W-312–4K/White</item>
+        <item>SBL-CL-60W-302–4K/White</item>
+        <item>SBL-CL-38W-304–4K/White</item>
+        <item>SBL-CL-45W-307–4K</item>
+        <item>SBL-CL-75W-319–4K/White</item>
+        <item>SBL-CL-110W-301-White</item>
+        <item>SBL-CL-65W-303–4K/White</item>
+        <item>SBL-CL-42W-310–4K</item>
+        <item>SBL-CL-23W-163–4K</item>
+        <item>SBL-CL-25W-1601–4K</item>
+        <item>SBL-CL-45W-4005–4K</item>
+        <item>SBL-CL-25W-4015–4K</item>
+        <item>SBL-CL-18W-160–4K</item>
+        <item>SBL-CL-55W-4003–4K</item>
+        <item>SBL-CL-25W-4009–4K</item>
+    </string-array>
+
+    <string-array name="installation">
+        <item>Криволинейный участок стены</item>
+        <item>Монтаж в труднодоступном месте</item>
+        <item>Монтаж по керамограниту</item>
+        <item>Монтаж по плитке</item>
+    </string-array>
+
+</resources>
