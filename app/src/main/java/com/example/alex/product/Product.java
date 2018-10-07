@@ -227,12 +227,14 @@ public class Product implements Parcelable, Cloneable {
         if (!(o instanceof Product)) return false;
         Product product = (Product) o;
         return Objects.equals(name, product.name) &&
+                Objects.equals(groupName, product.groupName) &&
                 texture == product.texture;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, texture);
+
+        return Objects.hash(name, groupName, texture);
     }
 
     @Override

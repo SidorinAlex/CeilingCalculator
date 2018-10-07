@@ -33,6 +33,7 @@ public class Room implements Serializable {
 //    };
 
     private String name;
+    private  String address;
 
     private float perimeter;
     private ArrayList<LedLight> ledLights = new ArrayList<LedLight>() {
@@ -145,6 +146,13 @@ public class Room implements Serializable {
         this.name = name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public float getPerimeter() {
         return perimeter;

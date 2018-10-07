@@ -6,7 +6,7 @@ package com.example.alex.product.ceilingCornices;
 
 final public class HoodForWhiteCornice extends CeilingCornice {
     public HoodForWhiteCornice() {
-        setName("Бленда для карниза");
+        setName("Бленда для карниза белая");
         setUnits("м.п.");
         setCoastOfWork(0);
         setMaterialCoast(36);

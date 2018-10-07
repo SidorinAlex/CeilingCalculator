@@ -11,6 +11,6 @@ public final class GsmAbove7Km extends BasicWork {
         setUnits("км");
         setMaterialCoast(0);
         setCoastOfWork(0);
-        setPrice(0);
+        setPrice(7);
     }
 }

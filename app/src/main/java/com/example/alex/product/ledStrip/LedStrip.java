@@ -29,14 +29,14 @@ public final class LedStrip extends LedProduct {
         if (texture.equals(Texture.COLOR)) {
             setMaterialCoast(120);
             setCoastOfWork(50);
-            setPrice(350);
+            setPrice(450);
             setName("Установка RGB светодиодной ленты");
 
         }
         if (texture.equals(Texture.BASE)) {
             setMaterialCoast(95);
             setCoastOfWork(50);
-            setPrice(300);
+            setPrice(400);
             setName("Установка одноцветной светодиодной ленты");
         }
     }

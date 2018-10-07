@@ -25,6 +25,7 @@ public class ListViewActivity extends ListActivity {
 
     final Context context = this;
     ArrayList<Product> products;
+    String address;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class ListViewActivity extends ListActivity {
 //            products.get(i).setTextColor((Texture) mIntent.getSerializableExtra("Texture"+i));
 //        }
 
+        address = (String)mIntent.getSerializableExtra("address");
         ListView list = (ListView) findViewById(android.R.id.list);
 
 
@@ -108,19 +110,25 @@ public class ListViewActivity extends ListActivity {
 
     private void calculateTheTotalCost(ArrayList<Product> products) {
         int totalCoast = 0;
-        int totalCoastOfWork = 0;
-        int totalMaterialCoast = 0;
+
         for (Product s : products) {
             totalCoast += s.getTotalPrice();
-            totalCoastOfWork += s.getTotalCoastOfWork();
-            totalMaterialCoast += s.getTotalMaterialCoast();
+
         }
 
         // String textPrise = showTextPrise();
-        String message = "Общая стоимость" + " " + totalCoast + "\n";
-//                "Стоимость работ " + " " + totalCoastOfWork + "\n" +
-//                "Стоимость материалов" + " " + totalMaterialCoast + "\n" +
 
+        if (totalCoast<4500){
+            totalCoast=4500;
+        }
+
+        String message;
+        if(address !=null){
+            message = address +"\nОбщая стоимость" + " " + totalCoast + "\n";
+        }
+        else {
+            message = "Общая стоимость" + " " + totalCoast + "\n";
+        }
         displayTotalPrise(message);
     }
 
@@ -162,10 +170,10 @@ public class ListViewActivity extends ListActivity {
 
         Log.v("стоимость", "общая себестоимость  равна " + coastPrise);
         coast1 = (int) (coastPrise / 0.39);
-        coast2 = (int) (coastPrise / 0.49);
-        coast3 = (int) (coastPrise / 0.54);
-        coast4 = (int) (coastPrise / 0.64);
-        Toast toast = Toast.makeText(this, coast1 + "(39)\n" + coast2 + "(49)\n" + coast3 + "(54)\n" + coast4 + "(64)\n" + coastPrise, Toast.LENGTH_LONG);
+        coast2 = (int) (coastPrise / 0.44);
+        coast3 = (int) (coastPrise / 0.49);
+        coast4 = (int) (coastPrise / 0.59);
+        Toast toast = Toast.makeText(this, coast1 + "(39)\n" + coast2 + "(44)\n" + coast3 + "(49)\n" + coast4 + "(59)\n" + coastPrise, Toast.LENGTH_LONG);
         toast.show();
     }
 

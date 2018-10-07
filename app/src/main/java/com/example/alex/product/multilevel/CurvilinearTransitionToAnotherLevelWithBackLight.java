@@ -9,6 +9,6 @@ public final class CurvilinearTransitionToAnotherLevelWithBackLight extends Mult
         setName("Переход на другой уровень с подсветкой криволинейный (Алюминиевая конструкция)");
         setCoastOfWork(750);
         setMaterialCoast(702.2f);
-        setPrice(3790);
+        setPrice(4500);
     }
 }

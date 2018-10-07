@@ -30,6 +30,7 @@ import com.example.alex.product.baguette.PvhBaguette;
 import com.example.alex.product.baguette.PvhBaguetteForFabric;
 import com.example.alex.product.basicWork.BasicWork;
 import com.example.alex.product.basicWork.BypassHeatingPipesAndGas;
+import com.example.alex.product.basicWork.GsmAbove7Km;
 import com.example.alex.product.basicWork.InstallationOfCeilingCornices;
 import com.example.alex.product.basicWork.InstallationOfChandelier;
 import com.example.alex.product.basicWork.InstallationOfElectricalCable;
@@ -90,6 +91,7 @@ import com.example.alex.product.design.StraightAdhesion;
 import com.example.alex.product.lEDLights.BulbForNovotechLedOdeonG94W;
 import com.example.alex.product.lEDLights.BulbMR16GU53_7W_4500K;
 import com.example.alex.product.lEDLights.BulbMR16GU53_7W_6000K;
+import com.example.alex.product.lEDLights.ConsumerLamp;
 import com.example.alex.product.lEDLights.GX53BlackChrome;
 import com.example.alex.product.lEDLights.GX53Chrome;
 import com.example.alex.product.lEDLights.GX53Gold;
@@ -116,6 +118,7 @@ import com.example.alex.product.lEDPanels.AlfaLY501_12W;
 import com.example.alex.product.lEDPanels.AlfaLY501_18W;
 import com.example.alex.product.lEDPanels.AlfaLY501_6W;
 import com.example.alex.product.lEDPanels.AlfaX002_LY206_6add2W;
+import com.example.alex.product.lEDPanels.ConsumerLed;
 import com.example.alex.product.lEDPanels.FeronAL500_6W;
 import com.example.alex.product.lEDPanels.LedPanel;
 import com.example.alex.product.lEDPanels.OdeonFNC77W4500K;
@@ -129,6 +132,7 @@ import com.example.alex.product.ledStrip.PowerSupplyForLedStrip;
 import com.example.alex.product.multilevel.CurvilinearTransitionToAnotherLevelPvh;
 import com.example.alex.product.multilevel.CurvilinearTransitionToAnotherLevelWithBackLight;
 import com.example.alex.product.multilevel.StraightTransitionToAnotherLevel;
+import com.example.alex.product.secondaryWork.AdditionalWork;
 import com.example.alex.product.secondaryWork.CurvedWallSection;
 import com.example.alex.product.secondaryWork.HeightOver4Meters;
 import com.example.alex.product.secondaryWork.InstallationUsingVacuumCleaner;
@@ -172,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
     MountingTheCoarseGrainedElement mountingTheCoarseGrainedElement;
     InstallationOfFireAlarmSystem installationOfFireAlarmSystem;
     InstallationOfTheFixingPoint installationOfTheFixingPoint;
+    AdditionalWork additionalWorkObject;
 
     CorniceThreeRow2400mm corniceThreeRow2400mm;
     CorniceThreeRow2600mm corniceThreeRow2600mm;
@@ -182,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
     FlexibleCornice5000mm flexibleCornice5000mm;
 
     BasicWork installationCornice;
-    CeilingCornice cornice;
-    CeilingCornice hood;
     Timber timber;
     InstallationOfTheControlUnitAndTheRemoteControl installationOfTheControlUnitAndTheRemoteControl;
     InstallationOfTheRadioSwitch installationOfTheRadioSwitch;
@@ -198,6 +201,8 @@ public class MainActivity extends AppCompatActivity {
     EditText addressForOrder;
     EditText roomName;
 
+
+    EditText gsm;
     EditText ceilingMaterialSquare;
     EditText inputQuantityDesign;
     EditText inputBaguette;
@@ -208,6 +213,9 @@ public class MainActivity extends AppCompatActivity {
     EditText inputLamp;
     EditText inputLedPanel;
     EditText inputChandelier;
+    EditText additionalWork;
+    EditText additionalWorkPrise;
+
 
     TextView angleView;
     TextView heatingPipe;
@@ -247,8 +255,6 @@ public class MainActivity extends AppCompatActivity {
     Spinner typesOfDesignSpinner;
     Spinner installationSpinner;
     Spinner corniceInstallationSpinner;
-    Spinner corniceSpinnerWithHood;
-    Spinner corniceSpinnerWithoutHood;
     Spinner hoodSpinner;
     Spinner timberInstallationSpinner;
 
@@ -576,18 +582,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // устанавливаем макет
 
 
-        //addressForOrder = (EditText)findViewById(R.id.addressForOrder);
-//        addressForOrder.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-//                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN &&
-//                        (i == KeyEvent.KEYCODE_ENTER)){
-//                    order.setAddress(addressForOrder.getText().toString());
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+        addressForOrder = (EditText)findViewById(R.id.addressForOrder);
+        addressForOrder.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if(keyEvent.getAction() == KeyEvent.ACTION_DOWN &&
+                        (i == KeyEvent.KEYCODE_ENTER)){
+                    room.setAddress(addressForOrder.getText().toString());
+                    return true;
+                }
+                return false;
+            }
+        });
         // инициализация editText для ввода названия комнаты
 //
 //        roomName = (EditText) findViewById(R.id.roomName);
@@ -606,7 +612,28 @@ public class MainActivity extends AppCompatActivity {
 //                                      }
 //                                  }
 //        );
-
+        gsm = (EditText)findViewById(R.id.gsmEditText);
+        gsm.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    try {
+                        float flgsm = Float.valueOf(gsm.getText().toString());
+                        addGsm(flgsm);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
+                        toast.show();
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getApplicationContext(), "NullPointerException", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    return true;
+                }
+                return false;
+                }
+            });
 
         ceilingMaterialSquare = (EditText) findViewById(R.id.inputSquare);
         ceilingMaterialSquare.setOnKeyListener(new View.OnKeyListener() {
@@ -617,7 +644,10 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         float flCeilingMaterialSqare = Float.valueOf(ceilingMaterialSquare.getText().toString());
                         addCeiling(ceilingMaterial,flCeilingMaterialSqare);
-                        addInstallationCeiling();
+                        addInstallationCeiling(flCeilingMaterialSqare);
+                        Toast toast = Toast.makeText(getApplicationContext(), "Перед тем,как добавить той же марки потолки" +
+                                " другой фактуры нажми ЗАКАЗ  \n \n                                  ¯ \\_ (ツ) _ / ¯  ", Toast.LENGTH_LONG);
+                        toast.show();
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
                         Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
@@ -716,8 +746,11 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         int intInputLamp = Integer.valueOf(inputLamp.getText().toString());
                         addInstallLamp(intInputLamp);
-                        addLedLight(lampForRoom, intInputLamp);
-                        addLedLight(bulbForRoom,intInputLamp);
+                        if(!(lampForRoom.getName().equals("клиента"))){
+                            addLedLight(lampForRoom, intInputLamp);
+                            addLedLight(bulbForRoom,intInputLamp);
+                        }
+
                     } catch (NumberFormatException e) {
                         e.printStackTrace();
                         Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
@@ -742,7 +775,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         int intInputLedPanel = Integer.valueOf(inputLedPanel.getText().toString());
                         addInstallLamp(intInputLedPanel);
-                        addLedLight(ledPanelForRoom, intInputLedPanel);
+                        addLedPanel(ledPanelForRoom, intInputLedPanel);
                     }  catch (NumberFormatException e) {
                         e.printStackTrace();
                         Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
@@ -832,6 +865,53 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         float flInputTimberQuantity = Float.parseFloat(inputTimberQuantity.getText().toString());
                         addInstallationTimber(timber,flInputTimberQuantity);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        additionalWork = (EditText)findViewById(R.id.additionalWork);
+        additionalWork.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    try {
+                        String name = additionalWork.getText().toString();
+                        additionalWorkObject = new AdditionalWork();
+                        additionalWorkObject.setName(name);
+                    }catch (NumberFormatException e){
+                        e.printStackTrace();
+                        Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        additionalWorkPrise = (EditText)findViewById(R.id.additionalWorkPrise);
+        additionalWorkPrise.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    try {
+                        int prise = Integer.parseInt(additionalWorkPrise.getText().toString());
+                        if(additionalWorkObject != null) {
+                            additionalWorkObject.setPrice(prise);
+                            additionalWorkObject.setCoastOfWork(prise / 2);
+                            addAdditionalWork();
+                        }
                     }catch (NumberFormatException e){
                         e.printStackTrace();
                         Toast toast = Toast.makeText(getApplicationContext(), "Недопустимое значение", Toast.LENGTH_SHORT);
@@ -1104,6 +1184,7 @@ public class MainActivity extends AppCompatActivity {
     private void sendDataToListActivity() {
         Intent intent = new Intent(this, ListViewActivity.class);
         intent.putExtra("ThisRoom", room.getAllProductsInTheRoom());
+        intent.putExtra("address", room.getAddress());
 
         startActivityForResult(intent, RequestCode.REQUEST_CODE_VIEW_LIST);
 
@@ -1129,8 +1210,6 @@ public class MainActivity extends AppCompatActivity {
     public void showCorniceOfTheCompany(View view) {
         if (corniceOfTheCompanySwitch.isChecked()) {
             corniceOfTheCompanyLayout.setVisibility(View.VISIBLE);
-            hoodSpinner.setSelection(1);
-
         } else {
             corniceOfTheCompanyLayout.setVisibility(View.GONE);
         }
@@ -1290,35 +1369,36 @@ public class MainActivity extends AppCompatActivity {
 
         switch (value) {
             case "Мат":
-                ceilingMaterial.setTexture(Texture.FROSTED);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.FROSTED);
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "Глянец":
-
-                ceilingMaterial.setTexture(Texture.GLOSS);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.GLOSS);
+
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "Сатин":
-
-                ceilingMaterial.setTexture(Texture.SATIN);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.SATIN);
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "Цветной мат":
-                ceilingMaterial.setTexture(Texture.COLOR_FROSTED);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.COLOR_FROSTED);
+
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "Цветной глянец":
-                ceilingMaterial.setTexture(Texture.COLOR_GLOSS);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.COLOR_GLOSS);
+
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "Цветной Сатин":
-                ceilingMaterial.setTexture(Texture.COLOR_SATIN);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.COLOR_SATIN);
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
         }
@@ -1330,18 +1410,20 @@ public class MainActivity extends AppCompatActivity {
             case "Exclusive":
                 break;
             case "PolyPlast (Бел) Венец. штукат.":
-                ceilingMaterial.setTexture(Texture.VENETIAN_PLASTER);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.VENETIAN_PLASTER);
+
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "PolyPlast (Бел) Галактика":
-                ceilingMaterial.setTexture(Texture.GALAXY);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.GALAXY);
+
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
             case "PolyPlast (Бел) Небо":
-                ceilingMaterial.setTexture(Texture.SKY);
                 ceilingMaterialSquare.setText("");
+                ceilingMaterial.setTexture(Texture.SKY);
                 Log.v("отл Текстура", "" + ceilingMaterial.getTexture());
                 break;
         }
@@ -1515,21 +1597,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void checkCorniceHoodItemSelectedListener(String value) {
-
+        CeilingCornice hood;
         switch (value) {
             case "Клиента":
+                hood =null;
                 break;
             case "Бленда для карниза белая":
                 hood = new HoodForWhiteCornice();
-                addHood();
+                addHood(hood);
                 break;
             case "Бленда для карниза бежевая":
-                hood = new HoodForBeigeCornice();
-                addHood();
+                hood  = new HoodForBeigeCornice();
+                addHood(hood);
                 break;
             case "Бленда для карниза коричневая":
-                hood = new HoodForBrownCornice();
-                addHood();
+                hood  = new HoodForBrownCornice();
+                addHood(hood);
                 break;
         }
     }
@@ -1554,6 +1637,7 @@ public class MainActivity extends AppCompatActivity {
         switch (value) {
             case "Клиента":
                 gx53bulbSpinner.setVisibility(View.INVISIBLE);
+                lampForRoom= new ConsumerLamp();
                 inputLamp.setText("");
                 break;
             case "GX53 Белый":
@@ -1625,7 +1709,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkLedPanelSpinner(String value) {
         switch (value) {
             case "Клиента":
-                ledPanelForRoom = null;
+                ledPanelForRoom = new ConsumerLed();
                 inputLedPanel.setText("");
                 break;
             case "RSP 7W 3000K":
@@ -1767,7 +1851,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (value) {
             case "Клиента":
-                bulbForRoom = null;
+                bulbForRoom = new ConsumerLamp();
                 inputLamp.setText("");
                 break;
             case "LED ODEON G9 4W":
@@ -1781,7 +1865,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (value) {
             case "Клиента":
-                bulbForRoom = null;
+                bulbForRoom = new ConsumerLamp();
                 inputLamp.setText("");
                 break;
             case "5–6W 3000К ODEON":
@@ -1826,7 +1910,7 @@ public class MainActivity extends AppCompatActivity {
     public void checkMr16BulbSpinner(String value) {
         switch (value) {
             case "Клиента":
-                bulbForRoom = null;
+                bulbForRoom = new ConsumerLamp();
                 inputLamp.setText("");
                 break;
             case "GU5,3 7W 4500K":
@@ -2400,28 +2484,35 @@ public class MainActivity extends AppCompatActivity {
         flexibleCornice.setText(chFlexibleCornice);
     }
 
-    public  void addInstallationCeiling(){
-        if (ceilingMaterial.getName().equals("Pongs (Descor)")) {
+    public void addGsm(Float gsm) {
 
+        GsmAbove7Km gsmAbove7Km = new GsmAbove7Km();
+        gsmAbove7Km.setQuantity(gsm);
+        room.putInAllProductsInTheRoom(gsmAbove7Km);
+    }
+    public  void addInstallationCeiling(float flCeilingMaterialSqare){
+
+
+        if (ceilingMaterial.getName().equals("Pongs (Descor)")) {
             if (room.getAllProductsInTheRoom().contains(installationOfFabricCeiling)) {
                 int i = room.getAllProductsInTheRoom().indexOf(installationOfFabricCeiling);
                 float quantity = room.getAllProductsInTheRoom().get(i).getQuantity();
-                quantity = quantity + ceilingMaterial.getQuantity();
+                quantity = quantity + flCeilingMaterialSqare;
                 room.getAllProductsInTheRoom().get(i).setQuantity(quantity);
             } else {
-                installationOfFabricCeiling.setQuantity(ceilingMaterial.getQuantity());
-                room.getAllProductsInTheRoom().add(installationOfFabricCeiling);
+                installationOfFabricCeiling.setQuantity(flCeilingMaterialSqare);
+                room.putInAllProductsInTheRoom(installationOfFabricCeiling);
             }
 
         } else {
             if (room.getAllProductsInTheRoom().contains(installingCeiling)) {
                 int i = room.getAllProductsInTheRoom().indexOf(installingCeiling);
                 float quantity = room.getAllProductsInTheRoom().get(i).getQuantity();
-                quantity = quantity + ceilingMaterial.getQuantity();
+                quantity = quantity + flCeilingMaterialSqare;
                 room.getAllProductsInTheRoom().get(i).setQuantity(quantity);
             } else {
-                installingCeiling.setQuantity(ceilingMaterial.getQuantity());
-                room.getAllProductsInTheRoom().add(installingCeiling);
+                installingCeiling.setQuantity(flCeilingMaterialSqare);
+                room.putInAllProductsInTheRoom(installingCeiling);
             }
         }
     }
@@ -2487,9 +2578,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void addHood() {
+    public void addHood(CeilingCornice hood) {
         hood.setQuantity(installationCornice.getQuantity());
-        room.putInAllProductsInTheRoom(hood);
+        room.getAllProductsInTheRoom().add(hood);
     }
 
     public void addInstallationTimber(Timber timber,float quantity) {
@@ -2507,15 +2598,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void addAdditionalWork() {
+
+        if(additionalWorkObject != null){
+            room.putInAllProductsInTheRoom(additionalWorkObject);
+        }
+    }
+
     public  void addLedLight(LedLight ledLight, int quantity) {
-        if (ledLight != null) {
+        if (!(  ledLight.getName().equals("клиента"))) {
             ledLight.setQuantity(quantity);
             room.putInAllProductsInTheRoom(ledLight);
         }
     }
 
-    public  void addLedLight(LedPanel ledPanel, int quantity){
-        if (ledPanel != null) {
+    public  void addLedPanel(LedPanel ledPanel, int quantity){
+        if (!(  ledPanel.getName().equals("клиента"))) {
             ledPanel.setQuantity(quantity);
             room.putInAllProductsInTheRoom(ledPanel);
         }
@@ -2688,8 +2786,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearOrder(View view) {
         roomNameLayout.removeAllViews();
-        room = new Room("Заказ");
-        createNewRoomButton(room);
+        gsm.setText("");
+        addressForOrder.setText("");
         ceilingMaterialSquare.setText("");
         inputQuantityDesign.setText("");
         inputBaguette.setText("");
@@ -2699,6 +2797,8 @@ public class MainActivity extends AppCompatActivity {
         inputLamp.setText("");
         inputLedPanel.setText("");
         inputChandelier.setText("");
+        additionalWork.setText("");
+        additionalWorkPrise.setText("");
         brandSpiner.setSelection(0);
         textureSpinner.setSelection(0);
         colorSpinner.setSelection(0);
@@ -2730,6 +2830,7 @@ public class MainActivity extends AppCompatActivity {
         cornice3200.setText("0");
         cornice3600.setText("0");
         cornice4000.setText("0");
+        flexibleCornice.setText("0");
         rgb.setChecked(false);
         ledStrip = null;
         colorDecorativeInsertSwitch.setChecked(false);

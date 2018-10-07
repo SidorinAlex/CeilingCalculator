@@ -11,7 +11,7 @@ public final class PhotoPrinting extends Design {
         setName("Фотопечать");
         setMaterialCoast(600);
         setCoastOfWork(0);
-        setPrice(1500);
+        setPrice(3000);
 
     }
 }
